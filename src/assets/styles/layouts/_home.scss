@@ -1,5 +1,11 @@
 * {
   box-sizing: border-box;
+  font-weight: 600;
+}
+
+hr {
+  margin-top: 3em;
+  width: 90%;
 }
 
 body {
@@ -9,49 +15,81 @@ body {
   margin: 0;
   padding: 2rem;
   font-family: $font-family-sans-serif;
-  font-size: 16px;
-  line-height: 24px;
-  background-color: $uoc-bg;
-  color: $uoc-corporate;
-}
+  font-size: 1.5em;
+  line-height: 1em;
+  background-color: $main-bg;
+  color: $text-main;
 
-.uoc-container {
-  max-width: 800px;
-  margin: auto;
-  padding: 2rem;
-  border-radius: 2rem;
-  text-align: center;
-  background-color: #fff;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
-    0 2px 4px -1px rgba(0, 0, 0, 0.06);
-}
+  .pag-title {
+    font-family: $font-family-sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    color: $text-main;
 
-.uoc-logo {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 1.5rem;
-  max-width: 200px;
-  height: auto;
+    @media (min-width: $mqMinWidth) {
+      font-size: 36px;
+    }
+  }
 
-  @media (min-width: $mqMinWidth) {
-    max-width: none;
+  .top-container {
+    background-color: $bg-img-color;
+    @include box-styling($box-shadow-color: white);
+
+    .pag-title {
+      font-size: 1.5em;
+    }
+  }
+
+  .content-grid-1 {
+    display: grid;
+    height: auto;
+    grid-template-rows: 1, 1, 1;
+    grid-template-columns: 1, 1, 1;
+    margin-top: 1.5em;
+
+    .last-game {
+      grid-column: 1;
+      grid-row: 1;
+      background-image: $bg-img-color, url("../images/CYBER.jpeg");
+      @include box-styling($box-shadow-color: yellow);
+    }
+
+    .prelast-game {
+      grid-column: 2;
+      grid-row: 1;
+      background-image: $bg-img-color, url("../images/GOW.jpeg");
+      @include box-styling($box-shadow-color: red);
+    }
+
+    .best-game {
+      grid-column: 1;
+      grid-row: 2;
+      background-image: $bg-img-color, url("../images/BG3.jpeg");
+      @include box-styling($box-shadow-color: green)
+    }
+
+    .prebest-game {
+      grid-column: 2;
+      grid-row: 2;
+      background-image: $bg-img-color, url("../images/AGUJERO.jpeg");
+      @include box-styling($box-shadow-color: Grey)
+    }
+  }
+
+  .section-title {
+    font-family: $font-family-sans-serif;
+    font-size: 1.5em;
+    text-align: center;
+    margin-top: 1em;
+    margin-bottom: 0;
   }
 }
 
-.uoc-title {
-  font-family: $font-family-serif;
-  font-size: 24px;
-  font-weight: 700;
-  color: $uoc-corporate;
 
-  @media (min-width: $mqMinWidth) {
-    font-size: 36px;
-  }
-}
-
-.uoc-footer {
+.footer {
   margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
   font-size: 0.75rem;
   text-align: center;
+  position: sticky;
 }
