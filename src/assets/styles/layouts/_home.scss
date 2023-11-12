@@ -1,30 +1,41 @@
+// En primer lugar, he mantenido los ajustes generales
+
 * {
   box-sizing: border-box;
   font-weight: 600;
 }
 
+// En segundo lugar he dado estilo a las líneas horizontales
+
 hr {
-  margin-top: 3em;
   width: 90%;
+  margin-top: 3em;
 }
+
+// En tercer lugar he dado estilo al cuerpo general del documento, para
+// seguidamente diseñar cada uno de los recuadros según un mixin "box-styling"
+// que se encuentra en "_variables.scss" Aquí le doy el color propio y
+// su imagen de fondo, además de su identidad como casilla de la grid. 
+// La única excepción es "pag-title", que no requiere diseño de cuadrícula.
 
 body {
   display: flex;
   flex-direction: column;
   height: 100vh;
-  margin: 0;
   padding: 2rem;
+  margin: 0;
   font-family: $font-family-sans-serif;
-  font-size: 1.5em;
+  font-size: 1.5em;  
   line-height: 1em;
-  background-color: $main-bg;
   color: $text-main;
+  background-color: $main-bg;
 
   .pag-title {
     font-family: $font-family-sans-serif;
-    font-size: 24px;
     font-weight: 700;
     color: $text-main;
+    text-align: center;
+    
 
     @media (min-width: $mqMinWidth) {
       font-size: 36px;
@@ -42,54 +53,106 @@ body {
 
   .content-grid-1 {
     display: grid;
-    height: auto;
     grid-template-rows: 1, 1, 1;
     grid-template-columns: 1, 1, 1;
+    height: auto;
     margin-top: 1.5em;
-
-    .last-game {
-      grid-column: 1;
-      grid-row: 1;
-      background-image: $bg-img-color, url("../images/CYBER.jpeg");
-      @include box-styling($box-shadow-color: yellow);
-    }
-
-    .prelast-game {
-      grid-column: 2;
-      grid-row: 1;
-      background-image: $bg-img-color, url("../images/GOW.jpeg");
-      @include box-styling($box-shadow-color: red);
-    }
-
-    .best-game {
-      grid-column: 1;
-      grid-row: 2;
-      background-image: $bg-img-color, url("../images/BG3.jpeg");
-      @include box-styling($box-shadow-color: green)
-    }
-
-    .prebest-game {
-      grid-column: 2;
-      grid-row: 2;
-      background-image: $bg-img-color, url("../images/AGUJERO.jpeg");
-      @include box-styling($box-shadow-color: Grey)
-    }
   }
 
-  .section-title {
+  .last-game {
+    grid-row: 1;
+    grid-column: 1;
+    background-image: $bg-img-color, url("../images/CYBER.jpeg");
+    @include box-styling($box-shadow-color: yellow);
+  }
+
+  .prelast-game {
+    grid-row: 1;
+    grid-column: 2;
+    background-image: $bg-img-color, url("../images/GOW.jpeg");
+    @include box-styling($box-shadow-color: red);
+  }
+
+  .best-game {
+    grid-row: 2;
+    grid-column: 1;
+    background-image: $bg-img-color, url("../images/BG3.jpeg");
+    @include box-styling($box-shadow-color: green)
+  }
+
+  .prebest-game {
+    grid-row: 2;
+    grid-column: 2;
+    background-image: $bg-img-color, url("../images/AGUJERO.jpeg");
+    @include box-styling($box-shadow-color: Grey)
+  }
+
+  .fav-game {
+    grid-row: 3;
+    grid-column: 1;
+    background-image: $bg-img-color, url("../images/alma.jpeg");
+    @include box-styling($box-shadow-color: rgb(239 184 16))
+  }
+
+  .prefav-game {
+    grid-row: 3;
+    grid-column: 2;
+    background-image: $bg-img-color, url("../images/SOMA.jpeg");
+    @include box-styling($box-shadow-color: rgb(255 79 75))
+  }
+
+// En éste punto le doy estilo a los títulos de sección
+
+  .section-title {      
+    margin-top: 1em;
+    margin-bottom: 0;
     font-family: $font-family-sans-serif;
     font-size: 1.5em;
     text-align: center;
-    margin-top: 1em;
-    margin-bottom: 0;
+  }
+
+// Y aquí ya hemos llegado al footer y los botones, que también están 
+// estilizados con un mixin y animadon con un simple @keyframe que
+// se puede ver en "_variables.scss". Aquí vemos el elemento id="G1"
+// que es el título del footer y los elementos id="G2/G3" que son botones
+// por lo que se configura su estado base, su estado hover con un keyframe
+//  y su estado active con un cambio de color y sombras para darle profundidad.
+
+  .buy-here {
+    display: grid;
+    grid-template:
+      "a 100%"
+      "b c";
+    text-align: center;
+
+    #G1 {
+      grid-row: 1;
+      grid-column: span 2;
+      width: 100%;
+    }
+
+    #G2 {
+      grid-row: 2;
+      grid-column: 1;
+      @include button();
+    }
+    #G2:hover  { @include button-hover(); }
+    #G2:active { @include button-active(); }
+
+    #G3 {
+      grid-row: 2;
+      grid-column: 2;
+      @include button();
+    }
+    #G3:hover  { @include button-hover(); }
+    #G3:active { @include button-active(); }
   }
 }
 
-
-.footer {
-  margin-top: 1.5rem;
-  margin-bottom: 1.5rem;
+.footer {  
+  position: sticky;
+  margin-block: 1.5rem;
   font-size: 0.75rem;
   text-align: center;
-  position: sticky;
+
 }

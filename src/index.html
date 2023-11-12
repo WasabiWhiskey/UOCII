@@ -2,7 +2,8 @@
 
 <html>
 
-<head>
+<head> <!--Para el encabezado del documento, he mantenido el de la boilerplate
+cambiando solo el título de la pestaña-->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
   <link rel="stylesheet" type="text/css" href="./assets/styles/main.scss"><!-- do not remove this line! -->
@@ -10,8 +11,11 @@
 </head>
 
 <body>
+  <!-- Primero creamos un div para la presentación. 
+    solo contiene un icono de Fonts Awesome, un header principal y un párrafo
+    como subtítulo -->
   <div class="top-container">
-    <h1 class="pag-title">SERGOS' PLAYS</h1> <!-- <i class="fas fa-university"></i>-->
+    <h1 class="pag-title"><i class="fa-solid fa-gamepad"></i> SERGOS' PLAYS</h1>
     <p>
       Bienvenidos a ésta página en la que voy a subir los últimos juegos que he
       jugado, algunos juegos que me gustan y quizás alguna cosa más con una
@@ -19,18 +23,47 @@
     </p>
   </div>
   <hr>
+  <!--Aquí creamos una línea horizonal y justo debajo otro header principal
+  a modo de título de sección. Más abajo creo una grid para introducir los dos 
+  juegos de la sección en ella. Ésto se repite 3 veces-->
   <h1 class="section-title">JUEGOS RECIENTES</h1>
   <div class="content-grid-1">
     <include src="./views/last-game.html"></include>
     <include src="./views/prelast-game.html"></include>
   </div>
   <hr>
+  <!--Los include importan el contenido de los botones de sus respectivos 
+  documentos (para facilitar su hipotética edición futura) consisten de 
+  un título secundario al principio, un párrafo y otro título secundario
+  al final con mi valoración numérica-->
   <h1 class="section-title">MEJORES JUEGOS DEL AÑO</h1>
   <div class="content-grid-1">
     <include src="./views/best-game.html"></include>
     <include src="./views/prebest-game.html"></include>
   </div>
+  <hr>
 
+  <h1 class="section-title">MIS FAVORITOS</h1>
+  <div class="content-grid-1">
+    <include src="./views/fav-game.html"></include>
+    <include src="./views/prefav-game.html"></include>
+  </div>
+
+  <hr> <!--Después de una últia línea horizontal podemos encontrar
+  un footer consistente de un header secundario y dos botones
+que redirigen a mercados de videojuegos on-line-->
+
+  <div class="buy-here">
+    <h2 id="G1">COMPRA CUALQUIERA AQUÍ:</h2>
+    <h2><a href="https://store.steampowered.com/?l=spanish" target="_blank">
+        <button type="button" id="G2">STEAM</button></a>
+    </h2>
+    <h2><a href="https://www.epicgames.com/site/es-ES/home" target="_blank">
+        <button type="button" id="G3">EPIC GAMES</button></a>
+    </h2>
+
+  </div> <!--Por último decidí también ocnservar el footer de la boilerplate
+  pero poniendo un número de versión de la página-->
   <include src="./views/footer.html"></include>
   <script type="module" src="./assets/scripts/main.js"></script> <!-- do not remove this line! -->
 </body>
