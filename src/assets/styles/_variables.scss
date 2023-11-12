@@ -4,16 +4,20 @@
 // keyframe que usarán los botones del footer con dos pasos,
 // la creación de una sombra y el cambio a un color oscuro.
 
-@keyframes botón{
- 0% {text-shadow: none;}
+@keyframes botón {
+  0% {
+    text-shadow: none;
+  }
 
- 40% {text-shadow: 1px 1px 2px white;}
+  40% {
+    text-shadow: 1px 1px 2px white;
+  }
 
- 100% {
-  color: rgb(75, 72, 72);
-  text-shadow: 2px 2px 5px white, 4px 4px 15px white;
-  
-}
+  100% {
+    color: rgb(75, 72, 72);
+    text-shadow: 2px 2px 5px white, 4px 4px 15px white;
+
+  }
 }
 
 // En segundo lugar definimos las variables que usaremos. He mantenido algunas
@@ -38,9 +42,9 @@ $mqMinWidth: 420px;
   width: auto;
   max-width: 95%;
   height: 100%;
-  padding: 1.55rem;
+  padding: 1rem;
   margin: auto;
-  text-align: justify;  
+  text-align: center;
   background-color: $bg-img-color;
   background-repeat: no-repeat;
   background-position: center;
@@ -53,9 +57,7 @@ $mqMinWidth: 420px;
     margin: 0;
     text-align: center;
     text-shadow: 1px 1px 5px $box-shadow-color;
-    
   }
-
 }
 
 // Y para terminar, creamos otro mixin para los dos botones del footer 
@@ -70,16 +72,16 @@ $mqMinWidth: 420px;
   border: none;
 }
 
-@mixin button-hover(){
-  color: rgb(75, 72, 72); 
+@mixin button-hover() {
+  color: rgb(75, 72, 72);
   text-shadow: 2px 2px 5px white, 4px 4px 15px white;
   animation: "botón" 500ms linear;
-  
-  
+
+
 
 }
 
-@mixin button-active(){
+@mixin button-active() {
   color: white;
   text-shadow: inset 2px 2px 2px black;
 }

@@ -25,8 +25,7 @@ body {
   padding: 2rem;
   margin: 0;
   font-family: $font-family-sans-serif;
-  font-size: 1.5em;  
-  line-height: 1em;
+  font-size: 1em;
   color: $text-main;
   background-color: $main-bg;
 
@@ -35,7 +34,7 @@ body {
     font-weight: 700;
     color: $text-main;
     text-align: center;
-    
+
 
     @media (min-width: $mqMinWidth) {
       font-size: 36px;
@@ -101,9 +100,9 @@ body {
     @include box-styling($box-shadow-color: rgb(255 79 75))
   }
 
-// En éste punto le doy estilo a los títulos de sección
+  // En éste punto le doy estilo a los títulos de sección
 
-  .section-title {      
+  .section-title {
     margin-top: 1em;
     margin-bottom: 0;
     font-family: $font-family-sans-serif;
@@ -111,12 +110,12 @@ body {
     text-align: center;
   }
 
-// Y aquí ya hemos llegado al footer y los botones, que también están 
-// estilizados con un mixin y animadon con un simple @keyframe que
-// se puede ver en "_variables.scss". Aquí vemos el elemento id="G1"
-// que es el título del footer y los elementos id="G2/G3" que son botones
-// por lo que se configura su estado base, su estado hover con un keyframe
-//  y su estado active con un cambio de color y sombras para darle profundidad.
+  // Y aquí ya hemos llegado al footer y los botones, que también están 
+  // estilizados con un mixin y animadon con un simple @keyframe que
+  // se puede ver en "_variables.scss". Aquí vemos el elemento id="G1"
+  // que es el título del footer y los elementos id="G2/G3" que son botones
+  // por lo que se configura su estado base, su estado hover con un keyframe
+  //  y su estado active con un cambio de color y sombras para darle profundidad.
 
   .buy-here {
     display: grid;
@@ -136,20 +135,32 @@ body {
       grid-column: 1;
       @include button();
     }
-    #G2:hover  { @include button-hover(); }
-    #G2:active { @include button-active(); }
+
+    #G2:hover {
+      @include button-hover();
+    }
+
+    #G2:active {
+      @include button-active();
+    }
 
     #G3 {
       grid-row: 2;
       grid-column: 2;
       @include button();
     }
-    #G3:hover  { @include button-hover(); }
-    #G3:active { @include button-active(); }
+
+    #G3:hover {
+      @include button-hover();
+    }
+
+    #G3:active {
+      @include button-active();
+    }
   }
 }
 
-.footer {  
+.footer {
   position: sticky;
   margin-block: 1.5rem;
   font-size: 0.75rem;
